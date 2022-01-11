@@ -1,7 +1,7 @@
 import os
 import sys
 import argparse
-import yaml
+# import pyyaml
 
 from tqdm import tqdm
 
@@ -59,6 +59,7 @@ def model_inference(args):
 
             _, preds, preds_confidence = model.forward_eval(batch, device=torch.device('cuda'))
             predictions += preds
+            predictions += preds_confidence
             
         save_pred_file(predictions)
         f1 = evaluate_from_pred_file(gold_key_path)
