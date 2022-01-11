@@ -127,11 +127,11 @@ def sample_examples(keys, weights, k, seed):
 
 
 def save_pred_file(predictions, args=None, filename=None):
-    filename = 'tmp.key.txt' if filename is None else filename
+    filename = 'result_key.txt' if filename is None else filename
     if args is None:
-        pred_key_path = os.path.join(config.TMP_DIR, 'tmp.key.txt')
+        pred_key_path = os.path.join(config.TMP_DIR, 'result_key.txt')
     else:
-        pred_key_path = os.path.join(args.ckpt_dir, 'tmp.key.txt')
+        pred_key_path = os.path.join(args.ckpt_dir, 'result_key.txt')
     with open(pred_key_path, 'w') as f:
         for pred in predictions:
             f.write(f'{pred}\n')
